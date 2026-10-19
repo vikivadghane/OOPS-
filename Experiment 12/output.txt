@@ -1,0 +1,2 @@
+Addition using namespace A: 9
+Addition using namespace B: 30
