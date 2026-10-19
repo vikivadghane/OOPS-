@@ -1,0 +1,9 @@
+Addition of the integers is : 9
+Subtraction of the integers is : 1
+Multiplication of the integers is : 20
+Division of the integers is : 1
+
+Addition of the doubles is : 9.8
+Subtraction of the doubles is : 1
+Multiplication of the doubles is : 23.76
+Division of the doubles is : 1.22727
