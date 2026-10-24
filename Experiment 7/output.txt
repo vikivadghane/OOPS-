@@ -1,0 +1,9 @@
+Default constructor:
+String: 
+Enter a string: Hello C++
+String: Hello C++
+
+Parameterized constructor:
+String: Hello World
+Destructor called.
+Destructor called.
