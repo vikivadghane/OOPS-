@@ -1,67 +1,66 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Employee {
-protected:
-    int id;
+class basic_info {
+public:
     string name;
+    int age;
 
-public:
-    void getEmployee() {
-        cout << "Enter Employee ID: ";
-        cin >> id;
-        cout << "Enter Employee Name: ";
-        cin >> ws;
-        getline(cin, name);
+    void accept_basic_info() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Age: ";
+        cin >> age;
     }
 
-    void displayEmployee() {
-        cout << "Employee ID: " << id << endl;
-        cout << "Employee Name: " << name << endl;
-    }
-};
-
-class Salary {
-protected:
-    float basic, hra, da, deductions;
-
-public:
-    void getSalary() {
-        cout << "Enter Basic Salary: ";
-        cin >> basic;
-        cout << "Enter HRA: ";
-        cin >> hra;
-        cout << "Enter DA: ";
-        cin >> da;
-        cout << "Enter Deductions: ";
-        cin >> deductions;
-    }
-
-    float calculateNetSalary() {
-        return basic + hra + da - deductions;
+    void disp_basic_info() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
     }
 };
 
-class EmployeeSalary : public Employee, public Salary {
+class dept_info {
 public:
-    void display() {
-        cout << "\n--- Employee Salary Details ---\n";
-        displayEmployee();
-        cout << "Basic Salary: " << basic << endl;
-        cout << "HRA: " << hra << endl;
-        cout << "DA: " << da << endl;
-        cout << "Deductions: " << deductions << endl;
-        cout << "Net Salary: " << calculateNetSalary() << endl;
+    string dept_name;
+    int dept_id;
+
+    void accept_dept_info() {
+        cout << "Enter Department Name: ";
+        cin >> dept_name;
+        cout << "Enter Department ID: ";
+        cin >> dept_id;
+    }
+
+    void disp_dept_info() {
+        cout << "Department Name: " << dept_name << endl;
+        cout << "Department ID: " << dept_id << endl;
+    }
+};
+
+class employee : public basic_info, public dept_info {
+public:
+    double salary;
+
+    void accept_employee() {
+        accept_basic_info();
+        accept_dept_info();
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+
+    void disp_employee() {
+        disp_basic_info();
+        disp_dept_info();
+        cout << "Salary: " << salary << endl;
     }
 };
 
 int main() {
-    EmployeeSalary e;
-
-    e.getEmployee();
-    e.getSalary();
-    e.display();
-
+    employee emp;
+    emp.accept_employee();
+    cout << "\n--- Employee Details ---" << endl;
+    emp.disp_employee();
     return 0;
 }
