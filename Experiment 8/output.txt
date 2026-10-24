@@ -1,0 +1,12 @@
+Enter Name: vikiraj
+Enter Age: 20
+Enter Department Name: AI
+Enter Department ID: 01
+Enter Salary: 100000
+
+--- Employee Details ---
+Name: vikiraj
+Age: 20
+Department Name: AI
+Department ID: 1
+Salary: 100000
