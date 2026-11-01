@@ -1,35 +1,29 @@
+
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
 
 int main()
 {
-    string srcName, destName;
+    ofstream createFile("source.txt");
+    createFile << "Hello, this is a source file.";
+    createFile.close();
 
-    cout << "Enter source file name: ";
-    cin >> srcName;
-    cout << "Enter destination file name: ";
-    cin >> destName;
+    ifstream inFile("source.txt");
+    ofstream outFile("copy.txt");
 
-    ifstream source(srcName);
-    if (!source)
+    if (!inFile || !outFile)
     {
-        cout << "Error: cannot open source file." << endl;
+        cout << "Error opening file!";
         return 1;
     }
 
-    ofstream dest(destName);
-    if (!dest)
-    {
-        cout << "Error: cannot create destination file." << endl;
-        return 1;
-    }
+    outFile << inFile.rdbuf();
 
-    dest << source.rdbuf();     // copy complete contents
+    cout << "File copied successfully.";
 
-    source.close();
-    dest.close();
-    cout << "File copied successfully." << endl;
+    inFile.close();
+    outFile.close();
+
     return 0;
 }
